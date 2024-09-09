@@ -4,9 +4,9 @@
 
 📚 Student in **Vinnytsia Technical Applied College** (Ukraine)
 
-My recent project, mod for Minecraft: `<a style="color: inherit; background-color: #1f1f1f; padding: 2px 8px 3px;" href="https://github.com/ukrounay/elemental-smithing">`Elemental Smithing`</a>`
+My recent project, mod for Minecraft: [Elemental Smithing](https://github.com/ukrounay/elemental-smithing)
 
-I'm currently working on platformer game with my own game engine, using pygame and pyopengl: `<a style="color: inherit; background-color: #1f1f1f; padding: 2px 8px 3px;" href="https://github.com/ukrounay/her-land">`Her Land`</a>`
+I'm currently working on platformer game with my own game engine, using pygame and pyopengl: [Her Land](https://github.com/ukrounay/her-land)
 
 ### Connect with me:
 
