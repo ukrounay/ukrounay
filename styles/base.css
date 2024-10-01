@@ -1,0 +1,100 @@
+* {
+    box-sizing: border-box;
+    /* transition: 0.2s; */
+    scroll-behavior: smooth;
+}
+body, html {
+    padding: 0;
+    margin: 0;
+    transition: 0;
+}
+
+
+.logo {
+    display: inline-block;
+    height: 100%;
+    overflow: hidden;
+}
+header .logo {
+    backdrop-filter: blur(20px);
+    border: 1px solid #ffffff20;
+}
+main .logo {
+    background: linear-gradient(20deg, #171616, #240f0f);
+}
+.logo svg {
+    height: 100%;   
+}
+.logo.white svg * {
+    fill: #f1f1f1;
+}
+.logo.red svg * {
+    fill: #e80000;
+}
+nav {
+    height: 120px;
+    padding: 10px;
+}
+#parallax-header {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    overflow: hidden;
+    z-index: 1;
+    background: black;
+}
+#parallax-header .content {
+    position: absolute;
+    top: 0;
+}
+#parallax-content {
+    height: 220vh;
+    background-color: #000;
+    overflow: visible;
+}
+#parallax-content section {
+    position: sticky;
+    width: 100%;
+    top: 0px;
+    height: 100vh;
+}
+main {
+    background-color: #1f1f1f;
+}
+.greeting {
+    padding: 20px;
+
+}
+header .content {
+    height: 100%;
+    width: 100%;
+}
+
+
+.svg-icon {
+    display: inline;
+    height: 1em;
+    width: auto;
+}
+.svg-icon svg {
+    height: 100%;
+    width: auto;
+}
+
+.scroll-hint {
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5em;
+    font-size: 1.6rem;
+}
+
+.scroll-hint .svg-icon {
+    fill: white;
+}
