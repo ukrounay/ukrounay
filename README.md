@@ -13,6 +13,8 @@ I'm currently working on platformer game with my own game engine, using pygame a
 [![](https://img.shields.io/badge/Gmail-1f1f1f?style=for-the-badge&logo=gmail&logoColor=white&labelColor=D14836)](mailto:ukrounay@gmail.com)
 [![](https://img.shields.io/badge/Telegram-1f1f1f?style=for-the-badge&logo=telegram&logoColor=white&labelColor=2CA5E0)](https://t.me/ukrounay)
 
+[Check my cv](https://github.com/ukrounay/ukrounay/blob/b07445db4dd7e2ce63099bfd3471c08811e95be1/files/cv.pdf)
+
 ### Follow me:
 
 [![](https://img.shields.io/badge/Instagram-373737?style=for-the-badge&logo=instagram&logoColor=E4405F)](https://instagram.com/ukrounay)
