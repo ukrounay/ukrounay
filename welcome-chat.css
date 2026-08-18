@@ -1,0 +1,8 @@
+.request .requestInput {
+  background: transparent;
+  border: none;
+  outline: none;
+  font: inherit;
+  color: inherit;
+  width: 100%;
+}

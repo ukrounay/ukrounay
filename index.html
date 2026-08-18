@@ -3,153 +3,127 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- 
+    <meta property="og:site_name" content="Elemental Smithing Wiki" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="uk_UA" />
+    <meta property="og:title" content="Elemental Smithing Wiki | Mod by ukrounay for Minecraft Fabric">
+    <meta property="og:url" content="https://ukrounay.github.io/elemental-smithing/">
+    <meta property="og:description" content="Medieval vibes and challenges await you!">
+    <meta property="og:image" content="https://ukrounay.github.io/elemental-smithing/images/gallery/player.png">
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1920" />
+    <meta property="og:image:height" content="1080" /> -->
 
     <title>ukrounay | home</title>
 
     <style>
-        html {
-            background: black;
-            color: white;
-            scroll-behavior: smooth;
+        @font-face { font-family: Elemental; font-weight: normal;   src: url(elemental.ttf); }
+        @font-face { font-family: Elemental; font-weight: bold;     src: url(elemental-black.ttf); }
+        * {
+            font-family: Elemental, 'Courier New', Courier, monospace !important;
+            box-sizing: border-box;
             padding: 0;
             margin: 0;
         }
-        canvas {
-            display: block;
+        .row {
+            width: 100%;
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+
+            display: flex;
+            flex-direction: row;
+            gap: 2rem;
+        }
+        .window {
+            border-radius: 20px;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid black;
+        }
+        #customBackground {
             position: absolute;
+            width: 100%;
+            height: 100%;
             top: 0;
-            left: 0;
             z-index: -1;
+        }
+        .windowBar {
+            font-weight: normal;
+            padding: 0.5rem 2rem;
+            border-bottom: 1px solid black;
+        }
+        .windowContent {
+            padding: 2rem;
+        }
+        @media screen and (max-width: 800px) {
+            .row {
+                flex-direction: column;
+                padding: 0 1rem;
+            }
         }
     </style>
 
-    <link rel="stylesheet" href="styles/base.css">
-
     <script src="https://cdn.jsdelivr.net/npm/simplex-noise@2.4.0/simplex-noise.min.js"></script>
-
-    <script defer src="scripts/galaxy.js"></script>
-    <script defer src="scripts/core.js"></script>
 </head>
 <body>
-    <div class="site">
-        <header id="parallax-header">
-            <div class="content">
-                <canvas id="galaxy"></canvas>
-                <nav>
-                    <span class="logo white">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600"><polygon points="195 190 165 190 165 120 135 120 135 220 225 220 225 120 195 120 195 190"/><polygon points="135 380 135 480 165 480 165 410 195 410 195 480 225 480 225 380 135 380"/><path d="M245,250V350H345V250Zm70,70H275V280h40Z"/><polygon points="335 150 345 150 345 120 305 120 305 170 285 170 285 120 255 120 255 220 285 220 285 200 315 200 315 220 345 220 345 170 335 170 335 150"/><polygon points="435 450 405 450 405 380 375 380 375 480 435 480 435 490 385 490 385 520 465 520 465 380 435 380 435 450"/><path d="M255,380V480h30V470h30v10h30V380Zm60,60H285V410h30Z"/><polygon points="435 250 435 320 405 320 405 250 375 250 375 350 465 350 465 250 435 250"/><polygon points="165 280 185 280 185 290 215 290 215 250 135 250 135 350 165 350 165 280"/></svg>
-                    </span>
-                </nav>
-                <section class="greeting">
-                    <h1>Hey</h1>
-                    <h2>I`m Nedolia Ruslan</h2>
-                </section>
-                <span class="scroll-hint">
-                    <span class="svg-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 148 231"><path d="M74,231h0A74.22,74.22,0,0,1,0,157V74A74.22,74.22,0,0,1,74,0h0a74.22,74.22,0,0,1,74,74v83A74.22,74.22,0,0,1,74,231ZM87.77,83V46.66A13.82,13.82,0,0,0,74,32.89h0A13.82,13.82,0,0,0,60.23,46.66V83A13.82,13.82,0,0,0,74,96.76h0A13.82,13.82,0,0,0,87.77,83Z"/></svg>
-                    </span>
-                    scroll down
-                </span>
+    <div class="row">
+        <section id="welcome_console" class="window">
+            <div class="windowContent">
+                <span class="answer"></span>
+                <span class="request"></span>
             </div>
-        </header>
-        <main>
-            <div id="parallax-content">
-                <section class="info">
-                    <nav>
-                        <span class="logo red">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600"><polygon points="195 190 165 190 165 120 135 120 135 220 225 220 225 120 195 120 195 190"/><polygon points="135 380 135 480 165 480 165 410 195 410 195 480 225 480 225 380 135 380"/><path d="M245,250V350H345V250Zm70,70H275V280h40Z"/><polygon points="335 150 345 150 345 120 305 120 305 170 285 170 285 120 255 120 255 220 285 220 285 200 315 200 315 220 345 220 345 170 335 170 335 150"/><polygon points="435 450 405 450 405 380 375 380 375 480 435 480 435 490 385 490 385 520 465 520 465 380 435 380 435 450"/><path d="M255,380V480h30V470h30v10h30V380Zm60,60H285V410h30Z"/><polygon points="435 250 435 320 405 320 405 250 375 250 375 350 465 350 465 250 435 250"/><polygon points="165 280 185 280 185 290 215 290 215 250 135 250 135 350 165 350 165 280"/></svg>
-                        </span>
-                    </nav>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa aliquid ratione fuga rem voluptate id quisquam quidem porro, odio placeat cum. Ipsa, facilis adipisci aspernatur ut ratione laboriosam repudiandae officiis?
-                </section>
-            </div>
-            <section class="overview">
-                <p>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Esse quae quia saepe nulla quam accusantium ipsa nesciunt doloribus provident, quaerat suscipit aut officiis dolorum corporis aliquam. Laboriosam harum nostrum placeat.
-                </p>
-                <p>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Esse quae quia saepe nulla quam accusantium ipsa nesciunt doloribus provident, quaerat suscipit aut officiis dolorum corporis aliquam. Laboriosam harum nostrum placeat.
-                </p>
-                <p>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Esse quae quia saepe nulla quam accusantium ipsa nesciunt doloribus provident, quaerat suscipit aut officiis dolorum corporis aliquam. Laboriosam harum nostrum placeat.
-                </p>
-                <p>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Esse quae quia saepe nulla quam accusantium ipsa nesciunt doloribus provident, quaerat suscipit aut officiis dolorum corporis aliquam. Laboriosam harum nostrum placeat.
-                </p>
-                <p>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Esse quae quia saepe nulla quam accusantium ipsa nesciunt doloribus provident, quaerat suscipit aut officiis dolorum corporis aliquam. Laboriosam harum nostrum placeat.
-                </p>
-                <p>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Esse quae quia saepe nulla quam accusantium ipsa nesciunt doloribus provident, quaerat suscipit aut officiis dolorum corporis aliquam. Laboriosam harum nostrum placeat.
-                </p>
-                <p>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Esse quae quia saepe nulla quam accusantium ipsa nesciunt doloribus provident, quaerat suscipit aut officiis dolorum corporis aliquam. Laboriosam harum nostrum placeat.
-                </p>
-                <p>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Esse quae quia saepe nulla quam accusantium ipsa nesciunt doloribus provident, quaerat suscipit aut officiis dolorum corporis aliquam. Laboriosam harum nostrum placeat.
-                </p>
-                <p>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Esse quae quia saepe nulla quam accusantium ipsa nesciunt doloribus provident, quaerat suscipit aut officiis dolorum corporis aliquam. Laboriosam harum nostrum placeat.
-                </p>
-                <p>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Esse quae quia saepe nulla quam accusantium ipsa nesciunt doloribus provident, quaerat suscipit aut officiis dolorum corporis aliquam. Laboriosam harum nostrum placeat.
-                </p>
-                <p>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Esse quae quia saepe nulla quam accusantium ipsa nesciunt doloribus provident, quaerat suscipit aut officiis dolorum corporis aliquam. Laboriosam harum nostrum placeat.
-                </p>
-                <p>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Esse quae quia saepe nulla quam accusantium ipsa nesciunt doloribus provident, quaerat suscipit aut officiis dolorum corporis aliquam. Laboriosam harum nostrum placeat.
-                </p>
-                <p>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Esse quae quia saepe nulla quam accusantium ipsa nesciunt doloribus provident, quaerat suscipit aut officiis dolorum corporis aliquam. Laboriosam harum nostrum placeat.
-                </p>
-                <p>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Esse quae quia saepe nulla quam accusantium ipsa nesciunt doloribus provident, quaerat suscipit aut officiis dolorum corporis aliquam. Laboriosam harum nostrum placeat.
-                </p>
-                <p>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Esse quae quia saepe nulla quam accusantium ipsa nesciunt doloribus provident, quaerat suscipit aut officiis dolorum corporis aliquam. Laboriosam harum nostrum placeat.
-                </p>
-                <p>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Esse quae quia saepe nulla quam accusantium ipsa nesciunt doloribus provident, quaerat suscipit aut officiis dolorum corporis aliquam. Laboriosam harum nostrum placeat.
-                </p>
-                <p>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Esse quae quia saepe nulla quam accusantium ipsa nesciunt doloribus provident, quaerat suscipit aut officiis dolorum corporis aliquam. Laboriosam harum nostrum placeat.
-                </p>
-                <p>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Esse quae quia saepe nulla quam accusantium ipsa nesciunt doloribus provident, quaerat suscipit aut officiis dolorum corporis aliquam. Laboriosam harum nostrum placeat.
-                </p>
-                <p>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Esse quae quia saepe nulla quam accusantium ipsa nesciunt doloribus provident, quaerat suscipit aut officiis dolorum corporis aliquam. Laboriosam harum nostrum placeat.
-                </p>
-                <p>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Esse quae quia saepe nulla quam accusantium ipsa nesciunt doloribus provident, quaerat suscipit aut officiis dolorum corporis aliquam. Laboriosam harum nostrum placeat.
-                </p>
-                <p>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Esse quae quia saepe nulla quam accusantium ipsa nesciunt doloribus provident, quaerat suscipit aut officiis dolorum corporis aliquam. Laboriosam harum nostrum placeat.
-                </p>
-                <p>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Esse quae quia saepe nulla quam accusantium ipsa nesciunt doloribus provident, quaerat suscipit aut officiis dolorum corporis aliquam. Laboriosam harum nostrum placeat.
-                </p>
-                <p>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Esse quae quia saepe nulla quam accusantium ipsa nesciunt doloribus provident, quaerat suscipit aut officiis dolorum corporis aliquam. Laboriosam harum nostrum placeat.
-                </p>
-                <p>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Esse quae quia saepe nulla quam accusantium ipsa nesciunt doloribus provident, quaerat suscipit aut officiis dolorum corporis aliquam. Laboriosam harum nostrum placeat.
-                </p>
-                <p>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Esse quae quia saepe nulla quam accusantium ipsa nesciunt doloribus provident, quaerat suscipit aut officiis dolorum corporis aliquam. Laboriosam harum nostrum placeat.
-                </p>
-                <p>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Esse quae quia saepe nulla quam accusantium ipsa nesciunt doloribus provident, quaerat suscipit aut officiis dolorum corporis aliquam. Laboriosam harum nostrum placeat.
-                </p>
-                <p>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Esse quae quia saepe nulla quam accusantium ipsa nesciunt doloribus provident, quaerat suscipit aut officiis dolorum corporis aliquam. Laboriosam harum nostrum placeat.
-                </p>
-                <p>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Esse quae quia saepe nulla quam accusantium ipsa nesciunt doloribus provident, quaerat suscipit aut officiis dolorum corporis aliquam. Laboriosam harum nostrum placeat.
-                </p>
-            </section>
-        </main>
+        </section>
+
+        <section id="photo" class="window">
+            <div class="nemeo-slider" data-sources="
+                image:design.png
+            "></div>
+        </section>
     </div>
+
+    <div class="row">
+        <h2>Projects</h2>
+        
+    </div>
+
+    <div class="row">
+        <section id="downloads" class="window">
+            <h1>Hey</h1>
+            <h2>I`m Nedolia Ruslan</h2>
+        </section>
+    </div>
+
+    <div class="row">
+        <section id="links" class="window">
+            <h1>Hey</h1>
+            <h2>I`m Nedolia Ruslan</h2>
+        </section>
+
+        <section id="contact_form" class="window">
+
+        </section>
+    </div>
+    
+<script>
+    const windowSections = [...document.getElementsByClassName("window")];
+    windowSections.forEach( wdw => {
+        console.log("sfv")
+        let wdw_bar = document.createElement("h3");
+        wdw_bar.classList.add("windowBar");
+        wdw_bar.innerHTML = wdw.id;
+        wdw.prepend(wdw_bar);
+    });
+</script>
+
+<script defer src="nemeo-slider.js"></script>
+<script defer src="welcome-chat.js"></script>
+
+<link rel="stylesheet" href="nemeo-slider.css">
+<link rel="stylesheet" href="welcome-chat.css">
+
+
 </body>
 </html>
